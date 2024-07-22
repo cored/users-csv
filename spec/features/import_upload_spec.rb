@@ -15,7 +15,7 @@ RSpec.feature 'ImportUpload', type: :feature do
 	scenario 'User uploads no file' do
 		visit import_upload_index_path
 
-		click_button 'Upload CSV'
+		click_button 'Upload'
 
 		expect(page).to have_content 'No file uploaded. Please upload a CSV file.'
 	end
@@ -23,10 +23,9 @@ RSpec.feature 'ImportUpload', type: :feature do
 	scenario 'User uploads an invalid CSV file' do
 		visit import_upload_index_path
 
-		# Attach a non-CSV file for upload (if necessary)
-		attach_file 'file', Rails.root.join('spec', 'fixtures', 'invalid_file.txt')
+		attach_file 'file', Rails.root.join('spec', 'fixtures', 'files', 'invalid_file.txt')
 
-		click_button 'Upload CSV'
+		click_button 'Upload'
 
 		expect(page).to have_content 'Invalid CSV format'
 		expect(current_path).to eq import_upload_index_path
