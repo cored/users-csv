@@ -1,0 +1,22 @@
+<h1>Upload CSV File</h1>
+
+<%= form_for :csv_form, multipart: true do %>
+	<%= file_field_tag :file, accept: ".csv" %>
+	<%= submit_tag "Upload" %>
+<% end %>
+
+<h1>Upload Results</h1>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Password</th>
+			<th>Result</th>
+		</tr>
+	</thead>
+		<tbody>
+			<%= turbo_frame_tag "csv_import_list" do %>
+			<% end %>
+		</tbody>
+</table>
