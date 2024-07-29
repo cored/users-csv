@@ -47,6 +47,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem "pry-rails"
   gem "rspec-rails"
+  gem "capybara"
 end
 
 group :development do
@@ -59,4 +60,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
