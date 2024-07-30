@@ -1,1 +1,7 @@
-invalid
+, Email, Phone
+John Doe, 28
+Jane Smith, 32
+Alice Johnson,
+Bob Brown, 45, bob.brown@example.com, 555-555-5555
+Charlie White, charlie.white@example.com, 666-666-6666
+David Green, 30, david.green@example.com

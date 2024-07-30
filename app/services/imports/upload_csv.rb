@@ -7,8 +7,6 @@ module Imports
     def self.call(file)
       csv_data = CSV.read(file.path, headers: true)
       new(csv_data: csv_data).call
-    rescue CSV::MalformedCSVError => e
-      raise InvalidCsv.new(e.message)
     end
 
     def initialize(csv_data:, user_repo: User)
