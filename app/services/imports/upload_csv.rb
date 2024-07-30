@@ -2,7 +2,6 @@ require "csv"
 
 module Imports
 
-  InvalidCsv = Class.new(StandardError)
   class UploadCsv
     def self.call(file)
       csv_data = CSV.read(file.path, headers: true)
