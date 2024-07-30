@@ -16,22 +16,6 @@ RSpec.describe Imports::UploadCsv do
         expect(user_repo).to have_received(:create).with(name: "John Doe", password: "iVali191828328181")
 
       end
-
-      it "returns a success result" do
-        result = upload_csv.call
-
-        expect(result).to eq([Imports::UploadCsv::Result.success(name: "John Doe", password: "iVali191828328181")])
-      end
-    end
-
-    context "when the CSV is invalid" do
-      let(:user) { instance_double(User, valid?: false) }
-
-      it "returns a failure result" do
-        result = upload_csv.call
-
-        expect(result).to eq([Imports::UploadCsv::Result.failure(name: "John Doe", password: "iVali191828328181")])
-      end
     end
 
   end

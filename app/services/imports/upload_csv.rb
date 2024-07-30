@@ -23,23 +23,9 @@ module Imports
 
     private
 
-    Result = Struct.new(:name, :password, :result, keyword_init: true) do
-      def self.success(user_attrs)
-        new(user_attrs.merge(result: "Success"))
-      end
-
-      def self.failure(user_attrs)
-        new(user_attrs.merge(result: "Failure"))
-      end
-    end
     def validate_csv_data
       process_csv_data.map do |user_attrs|
-        user = user_repo.create(user_attrs)
-        if user.valid?
-          Result.success(user_attrs)
-        else
-          Result.failure(user_attrs)
-        end
+        user_repo.create(user_attrs)
       end
     end
 

@@ -1,7 +1,7 @@
 <% users.each do |user| %>
 	<tr>
-		<td><%= user[:name] %></td>
-		<td><%= user[:password] %></td>
-		<td><%= user[:result] %></td>
+		<td><%= user.name %></td>
+		<td><%= user.password %></td>
+		<td><%= user.errors.map(&:full_message).join %></td>
 	</tr>
 <% end %>

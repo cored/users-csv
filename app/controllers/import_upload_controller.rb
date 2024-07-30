@@ -6,8 +6,6 @@ class ImportUploadController < ApplicationController
 	def create
 		redirect_to import_upload_index_path, alert: "No file uploaded. Please upload a CSV file." and return if uploaded_file.blank?
 
-		require 'pry'; binding.pry
-
 		@users = Imports::UploadCsv.call(uploaded_file)
 
 		respond_to do |format|
