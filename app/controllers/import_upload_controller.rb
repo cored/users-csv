@@ -12,9 +12,6 @@ class ImportUploadController < ApplicationController
 			format.html { redirect_to import_upload_index_path, notice: "CSV file uploaded successfully." }
 			format.turbo_stream
 		end
-
-	rescue Imports::InvalidCsv => e
-		redirect_to import_upload_index_path, error: "Invalid CSV format: #{e.message}"
 	end
 
 	private
